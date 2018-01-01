@@ -16,7 +16,7 @@
 			<version>6.11</version>
 			<scope>test</scope>
 		</dependency>
-
+		<!-- Rest API and Rest Validation Dependencies -->
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
@@ -45,10 +45,54 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-
-
-
-
-
 	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>./src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>./src/test/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.20.1</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>./testsuite/testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-report-plugin</artifactId> 
+				<version>2.20.1</version> <configuration> <suiteXmlFiles> <suiteXmlFile>./testsuite/testng.xml</suiteXmlFile> 
+				</suiteXmlFiles> <reportsDirectory>./test-output/rest/</reportsDirectory> 
+				</configuration> <executions> <execution> <id>during-tests</id> <phase>test</phase> 
+				<goals> <goal>report</goal> </goals> </execution> </executions> </plugin> -->
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.20.1</version>
+				<!-- <configuration>
+					<reportsDirectory>./test-output/rest/</reportsDirectory>
+				</configuration> -->
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>index</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>
