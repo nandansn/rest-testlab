@@ -45,6 +45,20 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.squareup.okhttp/okhttp -->
+		<dependency>
+			<groupId>com.squareup.okhttp</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>2.7.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.6.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -82,9 +96,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
 				<version>2.20.1</version>
-				<!-- <configuration>
-					<reportsDirectory>./test-output/rest/</reportsDirectory>
-				</configuration> -->
+				<!-- <configuration> <reportsDirectory>./test-output/rest/</reportsDirectory> 
+					</configuration> -->
 				<reportSets>
 					<reportSet>
 						<reports>
